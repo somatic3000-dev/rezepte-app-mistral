@@ -1,0 +1,23 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.viewToggle {
+  display: flex;
+  gap: 1rem;
+}
+
+.content {
+  width: 100%;
+}
