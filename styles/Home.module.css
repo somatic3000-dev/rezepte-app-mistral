@@ -1,23 +1,491 @@
-.container {
-  max-width: 1200px;
+.pageShell {
+  min-height: 100vh;
+  color: #273126;
+  background:
+    radial-gradient(circle at top left, rgba(255, 205, 149, 0.45), transparent 32rem),
+    linear-gradient(135deg, #fffaf2 0%, #eef7ed 44%, #f7eee4 100%);
+}
+
+.hero {
+  padding: 24px clamp(18px, 4vw, 64px) 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -140px;
+  top: 80px;
+  border-radius: 999px;
+  background: rgba(226, 114, 91, 0.14);
+  filter: blur(6px);
+}
+
+.navbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  max-width: 1180px;
+  margin: 0 auto 56px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 18px 60px rgba(80, 97, 69, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.navbar a {
+  color: #52614b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logoMark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  background: linear-gradient(135deg, #517a38, #e2725b);
+  box-shadow: 0 10px 30px rgba(81, 122, 56, 0.32);
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: clamp(28px, 6vw, 92px);
+  align-items: center;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
-.main {
+.heroCopy h1 {
+  max-width: 860px;
+  margin: 0;
+  font-size: clamp(2.7rem, 7vw, 6.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+}
+
+.heroCopy p {
+  max-width: 680px;
+  color: #5c6956;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.eyebrow,
+.sectionKicker,
+.miniLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  color: #d5644d;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.heroActions,
+.inputGroup,
+.libraryHeader,
+.metricRow,
+.detailHeader {
   display: flex;
-  flex-direction: column;
+  gap: 14px;
   align-items: center;
 }
 
-.title {
-  font-weight: bold;
+.primaryAction,
+.secondaryAction,
+.inputGroup button,
+.manualForm button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.viewToggle {
-  display: flex;
-  gap: 1rem;
+.primaryAction,
+.inputGroup button,
+.manualForm button {
+  color: white;
+  background: #365f2b;
+  box-shadow: 0 18px 35px rgba(54, 95, 43, 0.25);
 }
 
-.content {
+.secondaryAction {
+  color: #365f2b;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(54, 95, 43, 0.14);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover,
+.inputGroup button:hover,
+.manualForm button:hover {
+  transform: translateY(-2px);
+}
+
+.phonePreview,
+.glassPanel,
+.controlsPanel,
+.recipeDetail,
+.manualForm,
+.questionPanel {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 80px rgba(80, 97, 69, 0.14);
+  backdrop-filter: blur(22px);
+}
+
+.phonePreview {
+  min-height: 520px;
+  padding: 28px;
+  border-radius: 42px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 238, 221, 0.8)),
+    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320"%3E%3Ccircle cx="70" cy="80" r="58" fill="%23e2725b" fill-opacity="0.14"/%3E%3Ccircle cx="238" cy="222" r="78" fill="%236b8e23" fill-opacity="0.13"/%3E%3C/svg%3E');
+}
+
+.phoneHeader {
+  width: 92px;
+  height: 6px;
+  margin: 0 auto 58px;
+  border-radius: 999px;
+  background: #d9d1c3;
+}
+
+.phonePreview h2 {
+  margin: 0 0 18px;
+  font-size: 2.05rem;
+  letter-spacing: -0.05em;
+}
+
+.metricRow {
+  justify-content: space-between;
+  margin: 24px 0;
+}
+
+.metricRow span,
+.progressCard,
+.timeBadge {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 14px 16px;
+  font-weight: 800;
+}
+
+.progressCard {
+  display: grid;
+  gap: 10px;
+  margin-top: 155px;
+  color: #fff;
+  background: linear-gradient(135deg, #365f2b, #739f50);
+}
+
+.main {
+  display: grid;
+  gap: 26px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4vw, 64px) 64px;
+}
+
+.panelGrid,
+.workspace,
+.bottomGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 24px;
+}
+
+.glassPanel,
+.controlsPanel,
+.recipeDetail,
+.manualForm,
+.questionPanel {
+  border-radius: 34px;
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.glassPanel h2,
+.controlsPanel h2,
+.recipeDetail h2,
+.manualForm h2,
+.questionPanel h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  letter-spacing: -0.05em;
+}
+
+.glassPanel p,
+.recipeDetail p,
+.questionPanel li {
+  color: #62705c;
+  line-height: 1.65;
+}
+
+.glassPanel label,
+.controlsPanel label {
+  display: block;
+  margin: 20px 0 9px;
+  color: #41503c;
+  font-weight: 900;
+}
+
+.inputGroup input,
+.manualForm input,
+.manualForm textarea {
   width: 100%;
+  border: 1px solid rgba(54, 95, 43, 0.16);
+  border-radius: 20px;
+  padding: 15px 16px;
+  color: #273126;
+  background: rgba(255, 255, 255, 0.82);
+  font: inherit;
+  outline: none;
+}
+
+.inputGroup input:focus,
+.manualForm input:focus,
+.manualForm textarea:focus {
+  border-color: #6b8e23;
+  box-shadow: 0 0 0 4px rgba(107, 142, 35, 0.14);
+}
+
+.libraryHeader {
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.segmentedControl {
+  display: inline-flex;
+  padding: 5px;
+  border-radius: 999px;
+  background: #edf3e8;
+}
+
+.segmentedControl button {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: #53634b;
+  background: transparent;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.segmentedControl .activeSegment {
+  color: white;
+  background: #365f2b;
+}
+
+.recipeCards,
+.recipeList {
+  display: grid;
+  gap: 12px;
+}
+
+.recipeCards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.recipeList {
+  grid-template-columns: 1fr;
+}
+
+.recipeCard {
+  display: grid;
+  gap: 8px;
+  min-height: 138px;
+  border: 1px solid rgba(54, 95, 43, 0.12);
+  border-radius: 24px;
+  padding: 18px;
+  color: inherit;
+  text-align: left;
+  background: #fffaf4;
+  cursor: pointer;
+}
+
+.recipeCard span,
+.recipeCard small {
+  color: #7a8574;
+  font-weight: 800;
+}
+
+.recipeCard strong {
+  font-size: 1.08rem;
+}
+
+.selectedCard {
+  border-color: #e2725b;
+  box-shadow: inset 0 0 0 2px rgba(226, 114, 91, 0.18);
+}
+
+.workspace {
+  grid-template-columns: 330px minmax(0, 1fr);
+  align-items: start;
+}
+
+.controlsPanel {
+  position: sticky;
+  top: 18px;
+}
+
+.controlsPanel input[type='range'] {
+  width: 100%;
+  accent-color: #6b8e23;
+}
+
+.toggleRow {
+  display: flex !important;
+  gap: 10px;
+  align-items: center;
+}
+
+.insightList {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.insightList p {
+  margin: 0;
+  border-radius: 18px;
+  padding: 13px 15px;
+  color: #41503c;
+  background: #eef5e9;
+  font-weight: 700;
+}
+
+.detailHeader {
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 26px;
+}
+
+.timeBadge {
+  display: grid;
+  place-items: center;
+  min-width: 86px;
+  color: #365f2b;
+}
+
+.timeBadge strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 24px;
+}
+
+.detailGrid h3 {
+  margin-top: 0;
+  letter-spacing: -0.03em;
+}
+
+.ingredientList,
+.stepList,
+.questionPanel ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.ingredientList li,
+.stepList li {
+  border-radius: 18px;
+  padding: 12px 14px;
+  background: rgba(255, 250, 244, 0.9);
+}
+
+.manualForm {
+  display: grid;
+  gap: 14px;
+}
+
+.manualForm textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.questionPanel li::marker {
+  color: #e2725b;
+}
+
+@media (max-width: 920px) {
+  .heroGrid,
+  .panelGrid,
+  .workspace,
+  .bottomGrid,
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .phonePreview {
+    max-width: 420px;
+    min-height: 430px;
+    margin: 0 auto;
+  }
+
+  .progressCard {
+    margin-top: 72px;
+  }
+
+  .controlsPanel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 14px;
+  }
+
+  .navbar {
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 28px;
+  }
+
+  .heroActions,
+  .inputGroup,
+  .detailHeader,
+  .libraryHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primaryAction,
+  .secondaryAction,
+  .inputGroup button,
+  .manualForm button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .recipeCards {
+    grid-template-columns: 1fr;
+  }
 }
